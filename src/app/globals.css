@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --paper: #f4f2ec;
+  --ink: #1c1b17;
+  --muted: #6a675e;
+  --line: #d9d5cb;
+  --header: #e8e5dc;
+  --card: #fffcf6;
+  --orange: #d96a2b;
+  --blue: #5d7ea3;
+  --recruit: #2f6b4f;
+  --active: #3d5a80;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%236a675e' d='M1 1l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  padding-right: 1.8rem;
+}
