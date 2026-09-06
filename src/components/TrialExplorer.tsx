@@ -82,20 +82,26 @@ function NctLink({ nctId }: { nctId: string }) {
 }
 
 function FilterSelect<T extends string>({
+  id,
   label,
   value,
   options,
   onChange,
 }: {
+  id: string;
   label: string;
   value: T | "all";
   options: readonly T[];
   onChange: (next: T | "all") => void;
 }) {
   return (
-    <label className="flex min-w-40 flex-col gap-1 text-[11px] font-medium tracking-wide text-[#6a675e] uppercase">
+    <label
+      htmlFor={id}
+      className="flex min-w-40 flex-col gap-1 text-[11px] font-medium tracking-wide text-[#6a675e] uppercase"
+    >
       {label}
       <select
+        id={id}
         value={value}
         onChange={(e) => onChange(e.target.value as T | "all")}
         className="h-9 rounded-md border border-[#d9d5cb] bg-[#fffcf6] px-2.5 text-[13px] font-normal tracking-normal text-[#1c1b17]"
@@ -120,32 +126,40 @@ export function TrialExplorer() {
     <div>
       <div className="flex flex-wrap items-end gap-3 border-b border-[#d9d5cb] pb-4">
         <FilterSelect
+          id="filter-status"
           label="Status"
           value={filters.status}
           options={STATUSES}
           onChange={(status) => setFilters((f) => ({ ...f, status }))}
         />
         <FilterSelect
+          id="filter-mechanism"
           label="Mechanism / class"
           value={filters.mechanism}
           options={MECHANISMS}
           onChange={(mechanism) => setFilters((f) => ({ ...f, mechanism }))}
         />
         <FilterSelect
+          id="filter-prevention"
           label="Prevention"
           value={filters.prevention}
           options={PREVENTION_TYPES}
           onChange={(prevention) => setFilters((f) => ({ ...f, prevention }))}
         />
         <FilterSelect
+          id="filter-sponsor"
           label="Sponsor"
           value={filters.sponsor}
           options={sponsors}
           onChange={(sponsor) => setFilters((f) => ({ ...f, sponsor }))}
         />
-        <label className="flex min-w-40 flex-col gap-1 text-[11px] font-medium tracking-wide text-[#6a675e] uppercase">
+        <label
+          htmlFor="filter-sort"
+          className="flex min-w-40 flex-col gap-1 text-[11px] font-medium tracking-wide text-[#6a675e] uppercase"
+        >
           Sort
           <select
+            id="filter-sort"
             value={filters.sort}
             onChange={(e) =>
               setFilters((f) => ({ ...f, sort: e.target.value as SortKey }))

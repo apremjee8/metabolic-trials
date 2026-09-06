@@ -44,15 +44,3 @@ export function sortTrials(trials: Trial[], sort: SortKey): Trial[] {
     return STATUS_RANK[a.status] - STATUS_RANK[b.status];
   });
 }
-
-export function parseFilterParam<T extends string>(
-  value: string | undefined,
-  allowed: readonly T[],
-  fallback: T | "all",
-): T | "all" {
-  if (!value) return fallback;
-  if (value === "all") return "all";
-  return (allowed as readonly string[]).includes(value)
-    ? (value as T)
-    : fallback;
-}

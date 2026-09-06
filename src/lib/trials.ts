@@ -162,7 +162,7 @@ export const TRIALS: Trial[] = [
     startDate: "2018-10-24",
     primaryCompletion: "2023-06-21",
     status: "Completed",
-    prevention: "mixed",
+    prevention: "secondary",
     keyDifference: "Semaglutide CV outcomes in overweight/obesity without a diabetes indication.",
   },
   {
